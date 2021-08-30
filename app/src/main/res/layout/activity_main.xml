@@ -77,7 +77,7 @@
     <LinearLayout
         android:id="@+id/ll_ResultadoOponentes"
         android:layout_width="0dp"
-        android:layout_height="128dp"
+        android:layout_height="160dp"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart"
         app:layout_constraintTop_toBottomOf="@id/ll_Oponentes">
@@ -162,6 +162,7 @@
         app:layout_constraintStart_toStartOf="@id/guiStart">
 
         <ImageButton
+            android:id="@+id/imbtPedra"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
@@ -174,6 +175,7 @@
             />
 
         <ImageButton
+            android:id="@+id/imbtPapel"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
@@ -186,6 +188,7 @@
             />
 
         <ImageButton
+            android:id="@+id/imbtTesoura"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
