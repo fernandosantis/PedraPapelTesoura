@@ -1,11 +1,11 @@
 package br.edu.ifsp.scl.sdm.pedrapapeltesoura;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
@@ -82,8 +82,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
-
     public void jogar1Op() {
         Random random = new Random(System.currentTimeMillis());
         int escolhaOp1 = random.nextInt(3);
@@ -94,19 +92,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding.imgOponente1.setRotation(180);
         binding.imgOponente2.setVisibility(View.GONE);
         binding.llResultadosJogador.setVisibility(View.VISIBLE);
-        binding.lblResultado.setText(resultado1(escolha,escolhaOp1));
+        binding.lblResultado.setText(resultado1(escolha, escolhaOp1));
         binding.lblResultado.setVisibility(View.VISIBLE);
     }
 
-    private String resultado1(Integer v1, Integer v2) {
-        if (v1 == v2) {
-            return "Vocês 2 Empataram";
-        } else if ((v1 - v2 == -2) || (v1 - v2 == 1)) {
-            return "Você venceu do Oponente";
-        } else {
-            return "O Oponente venceu você!";
-        }
-    }
 
     public void jogar2Op() {
         Random random = new Random(System.currentTimeMillis());
@@ -119,11 +108,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding.imgOponente1.setRotation(135);
         binding.imgOponente2.setRotation(225);
         binding.llResultadosJogador.setVisibility(View.VISIBLE);
-        binding.lblResultado.setText(resultado1(escolha,escolhaOp1));
+        binding.lblResultado.setText(resultado2(escolha, escolhaOp1, escolhaOp2));
         binding.lblResultado.setVisibility(View.VISIBLE);
+    }
 
+    private Integer compara(Integer v1, Integer v2) {
+        if (v1 == v2) {
+            return 0; // Empatou
+        } else if ((v1 - v2 == -2) || (v1 - v2 == 1)) {
+            return 1; // Venceu
+        } else {
+            return -1; // Perdeu
+        }
+    }
+
+    private String resultado1(Integer v1, Integer v2) {
+        Integer v1v2;
+        v1v2 = compara(v1, v2);
+        switch (v1v2) {
+            case 1: return "Você venceu seu oponente!";
+            case -1: return "Você perdeu de seu oponente!";
+            default: return "Você e seu oponente empataram!";
+        }
 
     }
+
+
+    private String resultado2(Integer v1, Integer v2, Integer v3) {
+        Integer v1v2;
+        v1v2 = compara(v1, v2) * 3;
+
+        Integer v1v3;
+        v1v3 = compara(v1, v3) * 7;
+
+        Integer soma;
+        soma = v1v2 + v1v3;
+
+
+
+        switch (soma) {
+            case 0: return "Empate: Todos Jogaram igual.";
+            case 7: return "Você e o Oponente 1 diviram o prêmio de vencedor.";
+            case -7: return "Você empatou com o Oponente 1 mas perderam do Oponente 2, que foi o vencedor!";
+            case 3: return "Você Ganhou do Oponente 1 e dividiu o prêmio com o Oponente 2.";
+            case 10: return "Parabéns! Você venceu a todosos oponentes";
+            case -3: return "O Oponente 1 venceu! Você e o Oponente 2 empataram.";
+            case -10: return "Você levou uma lavada e perdeu de ambos.";
+            default: return "Todos jogaram diferente. Então não houve vencedores.";
+        }
+    }
+
 
     public void limpaCampos() {
 
@@ -137,12 +171,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding.imbtPapel.setBackgroundColor(getColor(corP));
         binding.imbtTesoura.setBackgroundColor(getColor(corP));
     }
-
-
-
-
-
-
-
 
 }
