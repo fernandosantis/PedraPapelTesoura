@@ -1,8 +1,11 @@
-# Especificação de Exercício
 
-JoKenPo – Pedra, Papel e Tesoura
+
+# JoKenPo – Pedra, Papel e Tesoura
+
 Pedro Northon Nobile
 nobile@ifsp.edu.br
+
+## Especificação de Exercício
 
 1. ### Objetivo
 
