@@ -3,14 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.21041666666666667" />
+        <entry key="app/src/main/res/drawable/ic_opcoes_24.xml" value="0.1398148148148148" />
         <entry key="app/src/main/res/drawable/img_papel.xml" value="0.36153846153846153" />
         <entry key="app/src/main/res/drawable/img_pedra.xml" value="0.36153846153846153" />
         <entry key="app/src/main/res/drawable/img_tesoura.xml" value="0.36153846153846153" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_opcoes.xml" value="0.35104166666666664" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.35104166666666664" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21041666666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
