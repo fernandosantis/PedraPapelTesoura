@@ -20,26 +20,29 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="16dp" />
 
-    <TextView
-        android:id="@+id/lbl_Oponentes"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_Opcoes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="A) Selecione os Oponentes"
-        android:textAlignment="center"
-        android:textSize="16dp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart"
+        app:layout_constraintTop_toTopOf="parent">
+    <TextView
+        android:id="@+id/lbl_Oponentes"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Oponentes"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/ll_Oponentes"
-        android:layout_width="0dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/guiEnd"
-        app:layout_constraintStart_toStartOf="@id/guiStart"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lbl_Oponentes">
 
         <TextView
@@ -72,7 +75,7 @@
             android:textSize="24sp"
             android:textStyle="normal" />
     </LinearLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/ll_ResultadoOponentes"
@@ -80,7 +83,7 @@
         android:layout_height="160dp"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart"
-        app:layout_constraintTop_toBottomOf="@id/ll_Oponentes">
+        app:layout_constraintTop_toBottomOf="@id/ll_Opcoes">
 
         <ImageView
             android:id="@+id/img_Oponente1"
@@ -90,7 +93,7 @@
             android:rotation="135"
             android:scaleType="centerInside"
             android:src="@drawable/img_pedra"
-            app:tint="@color/design_default_color_primary" />
+            app:tint="@color/player1" />
 
         <ImageView
             android:id="@+id/img_Oponente2"
@@ -100,7 +103,7 @@
             android:rotation="225"
             android:scaleType="centerInside"
             android:src="@drawable/img_pedra"
-            app:tint="@color/design_default_color_primary" />
+            app:tint="@color/player2" />
     </LinearLayout>
 
     <LinearLayout
