@@ -4,13 +4,13 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import br.edu.ifsp.scl.sdm.pedrapapeltesoura.MainActivity.Companion.JOGADAS
 import br.edu.ifsp.scl.sdm.pedrapapeltesoura.databinding.ActivityOpcoesBinding
+import com.google.android.material.slider.Slider
 
 class OpcoesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOpcoesBinding
-    private var players = 1
-    private var jogadas = 1
     private var corP = R.color.design_default_color_primary
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,38 +24,34 @@ class OpcoesActivity : AppCompatActivity() {
         binding.lblOponentes.setTextColor(getColor(corP))
 
         // Switch Players
-        binding.swtQtdOponentes.isChecked = false
+
+        binding.swtQtdOponentes.isChecked = MainActivity.PLAYERS != 1
+
         binding.swtQtdOponentes.setOnCheckedChangeListener { optPlay, _ ->
             if (optPlay.isChecked) {
                 binding.lblUmOponente.typeface = Typeface.defaultFromStyle(Typeface.NORMAL)
                 binding.lblDoisOponentes.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
-                players = 2
+                MainActivity.PLAYERS = 2
             } else {
                 binding.lblUmOponente.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
                 binding.lblDoisOponentes.typeface = Typeface.defaultFromStyle(Typeface.NORMAL)
-                players = 1
+                MainActivity.PLAYERS = 1
             }
         }
-
+        binding.sldJogadas.value = JOGADAS.toFloat()
         // Switch Rodadas
-        binding.swtQtdJogadas.isChecked = false
-        binding.swtQtdJogadas.setOnCheckedChangeListener { optJoga, isChecked ->
-            if (optJoga.isChecked) {
-                binding.lblTresJogada.typeface = Typeface.defaultFromStyle(Typeface.NORMAL)
-                binding.lblCincoJogadas.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
-                jogadas = 5
-            } else {
-                binding.lblTresJogada.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
-                binding.lblCincoJogadas.typeface = Typeface.defaultFromStyle(Typeface.NORMAL)
-                jogadas = 3
+        binding.sldJogadas.addOnChangeListener(
+            Slider.OnChangeListener { _, value, _ ->
+                MainActivity.JOGADAS = value.toInt()
             }
-        }
+        )
 
         binding.btnSalvar.setOnClickListener {
             val retornoIntent: Intent = Intent()
             with(binding) {
-                retornoIntent.putExtra(MainActivity.PLAYERS, players.toString())
-                retornoIntent.putExtra(MainActivity.JOGADAS, jogadas.toString())
+                retornoIntent.putExtra("PLAYERS", MainActivity.PLAYERS)
+
+                retornoIntent.putExtra("JOGADAS", MainActivity.JOGADAS)
             }
             setResult(RESULT_OK, retornoIntent)
             finish()

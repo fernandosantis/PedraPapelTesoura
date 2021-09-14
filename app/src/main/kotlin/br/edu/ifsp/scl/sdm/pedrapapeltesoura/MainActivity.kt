@@ -1,7 +1,6 @@
 package br.edu.ifsp.scl.sdm.pedrapapeltesoura
 
 import android.content.Intent
-import android.graphics.Typeface
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -26,10 +25,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var maos = arrayOf(R.drawable.img_pedra, R.drawable.img_papel, R.drawable.img_tesoura)
 
     companion object {
-        var JOGADAS = "3"
-        var PLAYERS = "1"
+        var JOGADAS = 1
+        var PLAYERS = 1
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,20 +52,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         opcoesActivityResultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { resultado ->
-                Toast.makeText(this@MainActivity,"Players ${PLAYERS} : Rodadas: ${JOGADAS}",Toast.LENGTH_SHORT).show()
                 if (resultado?.resultCode == RESULT_OK) {
                     with(resultado) {
-                        data?.getStringExtra(PLAYERS).takeIf { it != null }
-                            .apply { PLAYERS = (this).toString() }
-                        data?.getStringExtra(JOGADAS).takeIf { it != null }
-                            .apply { JOGADAS = (this).toString() }
+                        data?.getIntExtra("PLAYERS",1).takeIf { it != null }
+                            .let { PLAYERS= it ?: 1 }
+                        data?.getIntExtra("JOGADAS",1).takeIf { it != null }
+                            .let { JOGADAS = it ?: 1 }
                     }
                 }
+                Toast.makeText(this@MainActivity, "Players $PLAYERS : Rodadas: $JOGADAS", Toast.LENGTH_SHORT).show()
                 limpaCampos()
             }
-
-
-
     }
 
     override fun onClick(view: View) {
@@ -78,7 +73,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         binding.imgJogador.setImageResource(maos[escolha])
         // Checa Qtd de Oponentes
-        if (PLAYERS == "1") {
+        if (PLAYERS == 1) {
             jogar1Op()
         } else {
             jogar2Op()
@@ -97,6 +92,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         return when (item.itemId) {
             R.id.opt_opcoes -> {
                 val opcoesIntent = Intent(this, OpcoesActivity::class.java)
+                with(binding) {
+                    opcoesIntent.putExtra("PLAYERS", PLAYERS)
+
+                    opcoesIntent.putExtra("JOGADAS", JOGADAS)
+                }
                 opcoesActivityResultLauncher.launch(opcoesIntent)
                 true
             }
