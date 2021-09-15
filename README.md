@@ -3,7 +3,7 @@
 
 Professor - Pedro Northon Nobile (nobile@ifsp.edu.br)
 
-
+https://github.com/fernandosantis/PedraPapelTesoura/blob/main/Sequence%2001.00_00_00_00.Still002.jpg
 
 ## Especificação de Exercício
 
