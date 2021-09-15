@@ -55,11 +55,11 @@
     <TextView
         android:id="@+id/lbl_Jogadas"
         android:layout_width="0dp"
-        android:padding="4dp"
+        android:padding="8dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/design_default_color_primary"
-
+        android:textStyle="bold"
         android:text="Resultado: "
         android:textAlignment="center"
         android:textColor="@color/design_default_color_on_primary"
@@ -75,8 +75,10 @@
         android:layout_height="wrap_content"
         android:background="@color/design_default_color_primary"
         android:text="1 x 1 x 1"
+        android:padding="8dp"
         android:textAlignment="center"
         android:textSize="32sp"
+
         android:textColor="@color/design_default_color_on_primary"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart"
@@ -89,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@color/design_default_color_primary"
-        android:padding="4dp"
+        android:padding="8dp"
         android:text="Resultado: "
         android:textAlignment="center"
         android:textColor="@color/design_default_color_on_primary"
@@ -110,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart"
         app:layout_constraintTop_toBottomOf="@id/lbl_Resultado"
-        app:layout_constraintBottom_toTopOf="@id/lbl_Jogar"
+        app:layout_constraintBottom_toTopOf="@id/btn_jogar"
         >
 
         <ImageView
@@ -125,15 +127,15 @@
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/lbl_Jogar"
+    <Button
+        android:id="@+id/btn_jogar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_margin="16dp"
         android:text="Jogar"
-        android:textAlignment="center"
         android:textSize="16dp"
         android:textStyle="bold"
+        android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@id/ll_Jogar"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart" />
@@ -143,6 +145,7 @@
         android:layout_width="0dp"
         android:layout_height="128dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart">
