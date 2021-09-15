@@ -20,59 +20,46 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="16dp" />
 
-    <TextView
-        android:id="@+id/lbl_Oponentes"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/logo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="A) Selecione os Oponentes"
-        android:textAlignment="center"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/guiEnd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/guiStart"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/ll_Oponentes"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/guiEnd"
-        app:layout_constraintStart_toStartOf="@id/guiStart"
-        app:layout_constraintTop_toBottomOf="@id/lbl_Oponentes">
-
+        app:layout_constraintEnd_toEndOf="@id/guiEnd">
         <TextView
-            android:id="@+id/lbl_UmOponente"
-            android:layout_width="0dp"
+            android:id="@+id/lblInstrucoes"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1"
             android:textAlignment="center"
-            android:textColor="@color/design_default_color_primary"
+            android:text="Instruções"
             android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <Switch
-            android:id="@+id/swt_QtdOponentes"
-            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/lblDescr"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:useMaterialThemeColors="false"
-            android:thumbTint="@color/design_default_color_primary"
+            android:textAlignment="center"
+            android:text="Para Jogar, selecione as opções no menu e clique em Jogar para iniciar a partida."
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/lblInstrucoes"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_icone"
+            app:layout_constraintTop_toBottomOf="@id/lblDescr"
+
             />
 
-        <TextView
-            android:id="@+id/lbl_DoisOponentes"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2"
-            android:textAlignment="center"
-            android:textColor="@color/design_default_color_primary_variant"
-            android:textSize="24sp"
-            android:textStyle="normal" />
-    </LinearLayout>
 
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/ll_ResultadoOponentes"
@@ -80,7 +67,9 @@
         android:layout_height="160dp"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart"
-        app:layout_constraintTop_toBottomOf="@id/ll_Oponentes">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lbl_Jogadas"
+        >
 
         <ImageView
             android:id="@+id/img_Oponente1"
@@ -90,7 +79,7 @@
             android:rotation="135"
             android:scaleType="centerInside"
             android:src="@drawable/img_pedra"
-            app:tint="@color/design_default_color_primary" />
+            app:tint="@color/player1" />
 
         <ImageView
             android:id="@+id/img_Oponente2"
@@ -100,8 +89,63 @@
             android:rotation="225"
             android:scaleType="centerInside"
             android:src="@drawable/img_pedra"
-            app:tint="@color/design_default_color_primary" />
+            app:tint="@color/player2" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/lbl_Jogadas"
+        android:layout_width="0dp"
+        android:padding="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/barra"
+        android:textStyle="bold"
+        android:text="Resultado: "
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_on_primary"
+        app:layout_constraintEnd_toEndOf="@id/guiEnd"
+        app:layout_constraintStart_toStartOf="@id/guiStart"
+        app:layout_constraintTop_toBottomOf="@id/ll_ResultadoOponentes"
+
+        />
+
+    <TextView
+        android:id="@+id/lbl_Pontos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/barra"
+        android:text="1 x 1 x 1"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        android:visibility="invisible"
+        android:textColor="@color/design_default_color_on_primary"
+        app:layout_constraintEnd_toEndOf="@id/guiEnd"
+        app:layout_constraintStart_toStartOf="@id/guiStart"
+        app:layout_constraintTop_toBottomOf="@id/lbl_Jogadas"
+        />
+
+    <TextView
+        android:id="@+id/lbl_Resultado"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/barra"
+        android:padding="8dp"
+        android:text="Resultado: "
+        android:textAlignment="center"
+        android:visibility="invisible"
+        android:textColor="@color/design_default_color_on_primary"
+        app:layout_constraintEnd_toEndOf="@id/guiEnd"
+        app:layout_constraintStart_toStartOf="@id/guiStart"
+        app:layout_constraintTop_toBottomOf="@id/lbl_Pontos"
+
+        />
+
+
+
+
 
     <LinearLayout
         android:id="@+id/ll_ResultadosJogador"
@@ -109,7 +153,9 @@
         android:layout_height="160dp"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart"
-        app:layout_constraintTop_toBottomOf="@id/ll_ResultadoOponentes">
+        app:layout_constraintTop_toBottomOf="@id/lbl_Resultado"
+        app:layout_constraintBottom_toTopOf="@id/btn_jogar"
+        >
 
         <ImageView
             android:id="@+id/img_Jogador"
@@ -119,35 +165,20 @@
             android:baselineAlignBottom="true"
             android:scaleType="centerInside"
             android:src="@drawable/img_pedra"
-            app:tint="@color/design_default_color_primary_variant" />
+            app:tint="@color/player0" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/lbl_Resultado"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/design_default_color_primary"
-        android:padding="8dp"
-        android:text="Resultado: "
-        android:textAlignment="center"
-        android:textColor="@color/design_default_color_on_primary"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/lbl_Jogar"
-        app:layout_constraintEnd_toEndOf="@id/guiEnd"
-        app:layout_constraintStart_toStartOf="@id/guiStart"
-        app:layout_constraintTop_toBottomOf="@id/ll_ResultadosJogador" />
 
-    <TextView
-        android:id="@+id/lbl_Jogar"
+    <Button
+        android:id="@+id/btn_jogar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="B) Jogar"
-        android:textAlignment="center"
+        android:layout_margin="16dp"
+        android:text="Jogar"
         android:textSize="16dp"
         android:textStyle="bold"
+        android:padding="16dp"
+        android:backgroundTint="@color/barra"
         app:layout_constraintBottom_toTopOf="@id/ll_Jogar"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart" />
@@ -157,6 +188,7 @@
         android:layout_width="0dp"
         android:layout_height="128dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart">
@@ -167,7 +199,7 @@
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="@color/player0"
             android:scaleType="fitCenter"
             android:src="@drawable/img_pedra"
             app:tint="@color/design_default_color_on_primary"
@@ -180,7 +212,7 @@
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="@color/player0"
             android:scaleType="fitCenter"
             android:src="@drawable/img_papel"
             app:tint="@color/design_default_color_on_primary"
@@ -193,7 +225,7 @@
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="@color/player0"
             android:scaleType="fitCenter"
             android:src="@drawable/img_tesoura"
             app:tint="@color/design_default_color_on_primary"
