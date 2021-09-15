@@ -3,7 +3,7 @@
 
 Professor - Pedro Northon Nobile (nobile@ifsp.edu.br)
 
-![](Sequence 01.00_00_00_00.Still002.jpg)
+
 
 ## Especificação de Exercício
 
@@ -27,4 +27,4 @@ O exercício consiste na modificação do aplicativo desenvolvido como exercíci
 A entrega deve ser feita por meio do compartilhamento do repositório Git até a data estipulada no ambiente da disciplina. Além do código do projeto, o repositório deve conter um pequeno vídeo que demonstre o jogo sendo executado.
 
 ### Vídeo: 
-https://github.com/fernandosantis/PedraPapelTesoura/video.mp4
+https://github.com/fernandosantis/PedraPapelTesoura/raw/main/video.mp4
