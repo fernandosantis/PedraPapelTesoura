@@ -13,6 +13,9 @@ class OpcoesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOpcoesBinding
     private var corP = R.color.design_default_color_primary
 
+    private var jogadas = 1
+    private var players = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_opcoes)
@@ -24,37 +27,39 @@ class OpcoesActivity : AppCompatActivity() {
         binding.lblOponentes.setTextColor(getColor(corP))
 
         // Switch Players
-
-        binding.swtQtdOponentes.isChecked = MainActivity.PLAYERS != 1
+        jogadas = MainActivity.JOGADAS
+        players = MainActivity.PLAYERS
+        binding.swtQtdOponentes.isChecked = players  != 1
 
         binding.swtQtdOponentes.setOnCheckedChangeListener { optPlay, _ ->
             if (optPlay.isChecked) {
                 binding.lblUmOponente.typeface = Typeface.defaultFromStyle(Typeface.NORMAL)
                 binding.lblDoisOponentes.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
-                MainActivity.PLAYERS = 2
+                players = 2
             } else {
                 binding.lblUmOponente.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
                 binding.lblDoisOponentes.typeface = Typeface.defaultFromStyle(Typeface.NORMAL)
-                MainActivity.PLAYERS = 1
+                players = 1
             }
         }
         binding.sldJogadas.value = JOGADAS.toFloat()
         // Switch Rodadas
         binding.sldJogadas.addOnChangeListener(
             Slider.OnChangeListener { _, value, _ ->
-                MainActivity.JOGADAS = value.toInt()
+                jogadas = value.toInt()
             }
         )
 
         binding.btnSalvar.setOnClickListener {
             val retornoIntent: Intent = Intent()
             with(binding) {
-                retornoIntent.putExtra("PLAYERS", MainActivity.PLAYERS)
+                retornoIntent.putExtra("PLAYERS", players)
 
-                retornoIntent.putExtra("JOGADAS", MainActivity.JOGADAS)
+                retornoIntent.putExtra("JOGADAS", jogadas)
             }
             setResult(RESULT_OK, retornoIntent)
             finish()
         }
+
     }
 }

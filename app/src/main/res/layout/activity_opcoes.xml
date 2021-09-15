@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:textSize="16sp"
+        android:textColor="@color/player0"
         android:text="Jogadores"
         app:layout_constraintStart_toStartOf="@id/guiStart"
         app:layout_constraintTop_toTopOf="@id/ll_Oponentes"
@@ -77,7 +78,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-
+        android:textColor="@color/player0"
         android:text="Rodadas"
         app:layout_constraintStart_toStartOf="@id/guiStart"
         app:layout_constraintTop_toTopOf="@id/sld_Jogadas"
@@ -92,30 +93,22 @@
             android:stepSize="2"
             android:layout_height="10dp"
             android:layout_width="160dp"
+            app:thumbColor="@color/player0"
+            app:trackColor="@color/material_on_surface_disabled"
             app:layout_constraintTop_toBottomOf="@id/ll_Oponentes"
             app:layout_constraintEnd_toEndOf="@id/guiEnd"
             app:useMaterialThemeColors="false"
             />
 
 
-
-
     <Button
         android:id="@+id/btn_Salvar"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guiEnd"
-        app:layout_constraintStart_toEndOf="@id/btn_Cancelar"
-        android:text="Salvar" />
-
-    <Button
-        android:id="@+id/btn_Cancelar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Salvar"
+        android:paddingVertical="16dp"
         app:layout_constraintStart_toStartOf="@id/guiStart"
-        app:layout_constraintEnd_toStartOf="@id/btn_Salvar"
-        android:text="Cancelar" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guiEnd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

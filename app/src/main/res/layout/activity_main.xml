@@ -21,6 +21,46 @@
         app:layout_constraintGuide_end="16dp" />
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guiStart"
+        app:layout_constraintEnd_toEndOf="@id/guiEnd">
+        <TextView
+            android:id="@+id/lblInstrucoes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Instruções"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/lblDescr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Para Jogar, selecione as opções no menu e clique em Jogar para iniciar a partida."
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/lblInstrucoes"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_icone"
+            app:layout_constraintTop_toBottomOf="@id/lblDescr"
+
+            />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:id="@+id/ll_ResultadoOponentes"
         android:layout_width="0dp"
@@ -58,9 +98,10 @@
         android:padding="8dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@color/design_default_color_primary"
+        android:background="@color/barra"
         android:textStyle="bold"
         android:text="Resultado: "
+        android:visibility="invisible"
         android:textAlignment="center"
         android:textColor="@color/design_default_color_on_primary"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
@@ -73,12 +114,12 @@
         android:id="@+id/lbl_Pontos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/design_default_color_primary"
+        android:background="@color/barra"
         android:text="1 x 1 x 1"
         android:padding="8dp"
         android:textAlignment="center"
         android:textSize="32sp"
-
+        android:visibility="invisible"
         android:textColor="@color/design_default_color_on_primary"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart"
@@ -90,10 +131,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="@color/design_default_color_primary"
+        android:background="@color/barra"
         android:padding="8dp"
         android:text="Resultado: "
         android:textAlignment="center"
+        android:visibility="invisible"
         android:textColor="@color/design_default_color_on_primary"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart"
@@ -123,7 +165,7 @@
             android:baselineAlignBottom="true"
             android:scaleType="centerInside"
             android:src="@drawable/img_pedra"
-            app:tint="@color/design_default_color_primary_variant" />
+            app:tint="@color/player0" />
     </LinearLayout>
 
 
@@ -136,6 +178,7 @@
         android:textSize="16dp"
         android:textStyle="bold"
         android:padding="16dp"
+        android:backgroundTint="@color/barra"
         app:layout_constraintBottom_toTopOf="@id/ll_Jogar"
         app:layout_constraintEnd_toEndOf="@id/guiEnd"
         app:layout_constraintStart_toStartOf="@id/guiStart" />
@@ -156,7 +199,7 @@
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="@color/player0"
             android:scaleType="fitCenter"
             android:src="@drawable/img_pedra"
             app:tint="@color/design_default_color_on_primary"
@@ -169,7 +212,7 @@
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="@color/player0"
             android:scaleType="fitCenter"
             android:src="@drawable/img_papel"
             app:tint="@color/design_default_color_on_primary"
@@ -182,7 +225,7 @@
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="@color/player0"
             android:scaleType="fitCenter"
             android:src="@drawable/img_tesoura"
             app:tint="@color/design_default_color_on_primary"
