@@ -10,13 +10,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.sdm.pedrapapeltesoura.databinding.ActivityMainBinding
 import kotlin.random.Random
-import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     // Binding
     private lateinit var binding: ActivityMainBinding
     private lateinit var opcoesActivityResultLauncher: ActivityResultLauncher<Intent>
-    private var corP = R.color.design_default_color_primary
+    private var corP = R.color.player0
 
     // Integer corPV = R.color.design_default_color_primary_variant;
     private var escolha: Int = 0
@@ -40,10 +39,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             layoutInflater
         )
         setContentView(binding.root)
-        supportActionBar?.title = "Pedra, Papel e Tesoura"
-        limpaCampos()
 
-        // Switch - QtdOponentes
+        // Action Bar
+        supportActionBar?.title = "Pedra, Papel e Tesoura"
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_launcher_foreground)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        limpaCampos()
 
         binding.imbtPedra.setOnClickListener(this)
         binding.imbtPapel.setOnClickListener(this)
@@ -77,6 +79,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_jogar -> {
                 view.visibility = View.INVISIBLE
                 binding.llJogar.visibility = View.VISIBLE
+                binding.lblPontos.visibility = View.VISIBLE
+                binding.lblJogadas.visibility = View.VISIBLE
+                binding.lblResultado.visibility = View.VISIBLE
+                binding.logo.visibility = View.INVISIBLE
+                zera()
                 limpaCampos()
                 return
             }
@@ -216,6 +223,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.imbtPedra.setBackgroundColor(getColor(corP))
         binding.imbtPapel.setBackgroundColor(getColor(corP))
         binding.imbtTesoura.setBackgroundColor(getColor(corP))
+
         zera()
         placar()
     }
@@ -263,6 +271,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.llJogar.visibility = View.GONE
             binding.btnJogar.visibility = View.VISIBLE
         }
-
     }
 }
